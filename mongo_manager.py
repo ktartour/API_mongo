@@ -67,7 +67,16 @@ class MongoManager:
             self.__collection = self.__db["notes"]  # Attribut pour accéder à la collection
             document= {"date_saisie":date_saisie,"nom_eleve":nom_eleve,"prenom_eleve":prenom_eleve,"nom_classe":nom_classe,"nom_matiere":nom_matiere,"nom_prof":nom_prof,"prenom_prof":prenom_prof,"nom_trimestre":nom_trimestre,"note":int(note),"avis":avis,"avancement":int(avancement)}
             self.__collection.insert_one(document)  # possible de faire un return pour savoir commment ça s'est passé
-
             return "documents insérés"
         except Exception as e:
-            print(f"documents non insérés du à: {e}")
+            print(f"document non inséré du à: {e}")
+
+    def delete_note(self,date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere):
+        try:
+            self.__collection = self.__db["notes"]  # Attribut pour accéder à la collection
+            document = {"date_saisie":date_saisie,"nom_eleve":nom_eleve,"prenom_eleve":prenom_eleve,"nom_classe":nom_classe,"nom_matiere":nom_matiere}
+            self.__collection.delete_one(document)
+            #delete_result = self.__collection.delete_one({document})
+            return "document delete" #{"acknowledged": delete_result.acknowledged, "deletedCount": delete_result.deleted_count}
+        except Exception as e:
+            print(f"document non supprimé du à: {e}")

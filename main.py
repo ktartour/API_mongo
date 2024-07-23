@@ -38,11 +38,14 @@ async def get_eleve_choix_classe(classe):
 async def get_note_eleve(prenom,nom):
     return {f"note eleve {mongo_client.note_choix_eleve(prenom,nom)}"}
 
-@app.get("/notes par prof/", tags=["Eleves"])
+@app.get("/notes par prof/", tags=["Professeur"])
 async def get_note_prof(prenom,nom):
     return {f"Les élèves de {prenom} {nom} ont eu les notes {mongo_client.note_choix_prof(prenom,nom)}"}
 
-@app.post("/eleves", tags=["Professeur"])
-async def post_lieu(date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere,nom_prof,prenom_prof,nom_trimestre,note,avis,avancement):
+@app.post("/eleves", tags=["Eleves"])
+async def post_note(date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere,nom_prof,prenom_prof,nom_trimestre,note,avis,avancement):
     return mongo_client.fill_notes(date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere,nom_prof,prenom_prof,nom_trimestre,note,avis,avancement)
 
+@app.delete("/eleve",tags=["Eleves"])
+async def delete_note(date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere):
+    return mongo_client.delete_note(date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere)
