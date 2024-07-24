@@ -28,6 +28,15 @@ def fill_notes(date_saisie, nom_eleve, prenom_eleve, nom_classe, nom_matiere, no
     except Exception as e:
         print(f"document non inséré du à: {e}")
 
+def modify_notes(date_saisie, nom_eleve, prenom_eleve, nom_classe, nom_matiere, new_note):
+    try:
+        document = {"date_saisie": date_saisie, "nom_eleve": nom_eleve, "prenom_eleve": prenom_eleve,
+                    "nom_classe": nom_classe, "nom_matiere": nom_matiere}       #"note": int(note)
+        mongo_collection.update_one(document,{"$set" :{"note" : int(new_note)}})       #Insert le dictionnaire défini dans document
+        return "document modifié"
+    except Exception as e:
+        print(f"document non modifié du à: {e}")
+
 
 def delete_note(date_saisie, nom_eleve, prenom_eleve, nom_classe, nom_matiere):
     try:
