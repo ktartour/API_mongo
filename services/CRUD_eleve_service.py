@@ -4,7 +4,7 @@ from db import mongo_db
 mongo_collection =mongo_db["eleve"]      #Definition de la collection à utiliser
 
 
-def get_eleve(nom_eleve, prenom_eleve):
+def get_eleves(nom_eleve, prenom_eleve):
     try:
 
         document = {"nom_eleve": nom_eleve, "prenom_eleve": prenom_eleve}
@@ -33,7 +33,7 @@ def modify_eleve_adresse(nom_eleve, prenom_eleve,new_adresse_eleve):
         print(f"document non modifié du à: {e}")
 
 
-def delete_eleve(nom_eleve, prenom_eleve):
+def delete_eleves(nom_eleve, prenom_eleve):
     try:
 
         document = {"nom_eleve": nom_eleve, "prenom_eleve": prenom_eleve}
