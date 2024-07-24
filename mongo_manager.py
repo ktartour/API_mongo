@@ -2,9 +2,9 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 #from typing import  List                                #Pour mettre des contraintes de type
 #from iteration_utilities import unique_everseen         #Pour dédupliquer un liste
-
+"""  
 class MongoManager:
-    def __init__(self,URI:str, db_name:str):                 # :str une info , pas une restriction
+  def __init__(self,URI:str, db_name:str):                 # :str une info , pas une restriction
         self.__client = MongoClient(URI, server_api=ServerApi ("1"), tls=True)            #tls pour sécurisé le transfert de données, Attribut pour accéder au moteur de la BDD Mongo (ex: compass)
         try:
             ping = self.__client.admin.command({'ping': 1})
@@ -12,7 +12,9 @@ class MongoManager:
         except Exception as e:
             raise Exception("Unable to connect to MongoDB due to the following"
                             " error: ", e)
-        self.__db = self.__client[db_name]               #Attribut pour accéder à la base de données en mode dictionnaire ou self.__db = self.__client.get_database(db_name)
+        self.__db = self.__client[db_name]   """            #Attribut pour accéder à la base de données en mode dictionnaire ou self.__db = self.__client.get_database(db_name)
+
+"""
 
 
     def list_prof(self):
@@ -61,8 +63,8 @@ class MongoManager:
             return liste_notes
         except Exception as e:
             print(e)
-
-    def fill_notes(self,date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere,nom_prof,prenom_prof,nom_trimestre,note,avis,avancement):
+"""
+"""    def fill_notes(self,date_saisie,nom_eleve,prenom_eleve,nom_classe,nom_matiere,nom_prof,prenom_prof,nom_trimestre,note,avis,avancement):
         try:
             self.__collection = self.__db["notes"]  # Attribut pour accéder à la collection
             document= {"date_saisie":date_saisie,"nom_eleve":nom_eleve,"prenom_eleve":prenom_eleve,"nom_classe":nom_classe,"nom_matiere":nom_matiere,"nom_prof":nom_prof,"prenom_prof":prenom_prof,"nom_trimestre":nom_trimestre,"note":int(note),"avis":avis,"avancement":int(avancement)}
@@ -79,4 +81,4 @@ class MongoManager:
             #delete_result = self.__collection.delete_one({document})
             return "document delete" #{"acknowledged": delete_result.acknowledged, "deletedCount": delete_result.deleted_count}
         except Exception as e:
-            print(f"document non supprimé du à: {e}")
+            print(f"document non supprimé du à: {e}")"""
