@@ -1,7 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from typing import  List                                #Pour mettre des contraintes de type
-from iteration_utilities import unique_everseen         #Pour dédupliquer un liste
+#from typing import  List                                #Pour mettre des contraintes de type
+#from iteration_utilities import unique_everseen         #Pour dédupliquer un liste
 
 class MongoManager:
     def __init__(self,URI:str, db_name:str):                 # :str une info , pas une restriction

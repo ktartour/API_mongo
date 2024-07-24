@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+#from pydantic import BaseModel
 import os                               #Récup des infos en dehors de nos fichiers python
 from dotenv import load_dotenv          #Pour récupérer les infos stockées dans le fichier .env
 from urllib.parse import quote_plus     #Encoder les caractères spéciaux (avec les %)
 from mongo_manager import MongoManager
-load_dotenv()       #pour utiliser la fonction et poivoir utiliser le .env
+load_dotenv()       #pour utiliser la fonction et pouvoir utiliser le .env
 app = FastAPI()
 
 datab_name = os.environ["DB_NAME"]
@@ -32,7 +32,7 @@ async def get_eleve_par_classe():
 
 @app.get("/eleves_par_classe/", tags=["Eleves"])
 async def get_eleve_choix_classe(classe):
-    return {"L'ensemble des élèves dans chaque classe est": mongo_client.list_eleve_choix_class(classe)}
+    return {f"L'ensemble des élèves de {classe} est: {mongo_client.list_eleve_choix_class(classe)}"}
 
 @app.get("/notes par eleve/", tags=["Eleves"])
 async def get_note_eleve(prenom,nom):
