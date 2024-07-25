@@ -3,7 +3,7 @@ from dotenv import load_dotenv          #Pour récupérer les infos stockées da
 from urllib.parse import quote_plus     #Encoder les caractères spéciaux (avec les %)
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-
+#from motor import motor_asyncio     #Pour essayer de faire fonctionner la fonction async en remplaçant MongoClient
 
 load_dotenv()       #pour utiliser la fonction et pouvoir utiliser le .env
 

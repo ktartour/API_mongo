@@ -3,19 +3,19 @@ from fastapi import APIRouter               # Pour pouvoir utiliser des routeurs
 
 router=APIRouter(tags=["Eleves"])          #defini le routeur pour cette page, prédéfini le tag pour toutes les fonctions de cette page: Eleves
 
-@router.post("/Eleves")
-async def ajout_eleve(nom_eleve,prenom_eleve,nom_classe,date_naissance_eleve,adresse_eleve,sexe_eleve):
-    return fill_eleve(nom_eleve,prenom_eleve,nom_classe,date_naissance_eleve,adresse_eleve,sexe_eleve)
-
-@router.get("/Eleves")
+@router.get("/eleves")
 async def obtenir_eleve(nom_eleve, prenom_eleve):
     return get_eleves(nom_eleve, prenom_eleve)
 
-@router.patch("/Adresse eleves")
+
+@router.post("/eleves")
+async def ajout_eleve(nom_eleve,prenom_eleve,nom_classe,date_naissance_eleve,adresse_eleve,sexe_eleve):
+    return fill_eleve(nom_eleve,prenom_eleve,nom_classe,date_naissance_eleve,adresse_eleve,sexe_eleve)
+
+@router.patch("/adresse_eleves")
 async def mise_a_jour_adresse(nom_eleve, prenom_eleve,new_adresse_eleve):
     return modify_eleve_adresse(nom_eleve, prenom_eleve,new_adresse_eleve)
 
-
-@router.delete("/Eleves")
+@router.delete("/eleves")
 async def suppression_eleve(nom_eleve,prenom_eleve):
     return delete_eleves(nom_eleve,prenom_eleve)
