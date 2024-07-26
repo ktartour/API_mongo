@@ -7,23 +7,23 @@ router=APIRouter()
 @router.get("/professeurs/", tags=["Professeurs"])
 async def obtenir_liste_profs():
     # renvoyer nos données
-    return {"L'ensemble des professeurs est":list_prof()}
+    return list_prof()
 
 
 @router.get("/all_eleves/", tags=["Eleves"])
 async def obtenir_tous_eleves():
-    return {"L'ensemble des élèves dans chaque classe est": list_eleves()}
+    return list_eleves()
 
 
 ###
 @router.get("/eleves_par_classe/", tags=["Eleves"])
 async def obtenir_eleves_par_classe(classe):
-    return {f"L'ensemble des élèves de {classe} est: {list_eleve_par_class(classe)}"}
+    return list_eleve_par_class(classe)
 
 @router.get("/notes_par_eleve/", tags=["Eleves"])
-async def obtenir_notes_eleve(prenom,nom):
-    return {f"Les notes de l'eleve {prenom} {nom} sont {note_choix_eleve(prenom,nom)}"}
+async def obtenir_notes_eleve(nom,prenom):
+    return note_choix_eleve(prenom,nom)
 
 @router.get("/notes/", tags=["Professeurs"])
-async def obtenir_notes_par_prof(prenom,nom):
-    return {f"Les élèves du professeur {prenom} {nom} ont eu les notes {note_choix_prof(prenom,nom)}"}
+async def obtenir_notes_par_prof(nom,prenom):
+    return note_choix_prof(prenom,nom)

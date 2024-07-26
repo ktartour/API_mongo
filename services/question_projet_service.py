@@ -34,7 +34,7 @@ def list_eleve_par_class(classe):
         print(e)
 
 
-def note_choix_eleve(nom, prenom):
+def note_choix_eleve(prenom, nom):
     try:
         liste_notes = list(mongo_collection_note.find({"nom_eleve": nom.lower(), "prenom_eleve": prenom.lower()}, {
             "_id": 0, "prenom_eleve": 1, "nom_eleve": 1, "nom_matiere": 1, "note": 1}))
@@ -45,7 +45,7 @@ def note_choix_eleve(nom, prenom):
         print(e)
 
 
-def note_choix_prof(nom,prenom):
+def note_choix_prof(prenom,nom):
     try:
         liste_notes = list(mongo_collection_note.find({"nom_prof": nom.lower(), "prenom_prof": prenom.lower()}, {
             "_id": 0, "prenom_eleve": 1, "nom_eleve": 1, "nom_matiere": 1, "note": 1}))
