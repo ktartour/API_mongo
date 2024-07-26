@@ -1,3 +1,5 @@
 pymongo==4.8.0
 python_dotenv==1.0.1
 fastapi==0.111.1
+python==3.12.4​
+pip==24.1.2
