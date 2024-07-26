@@ -1,9 +1,17 @@
-# Projet NoSQL & PYTHON
+# Project NoSQL & PYTHON
 
 ## Project description
 
 The goal of the project is to program an Python API using FastAPI swagger.
 By using this API one would be able to perform CRUD operations on a MongoDB database. 
+
+## Main functions
+
+· Get a list of teachers
+· Get a list of students with corresponding class
+· Get a list of students within a given class
+· Get a student marks
+· Get students marks regarding a teacher
 
 ## Run
 
